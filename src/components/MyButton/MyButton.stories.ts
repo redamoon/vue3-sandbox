@@ -7,36 +7,33 @@ type Args = {
   label: string
   variant: string
 }
-
+// 共通化
 const meta: Meta<typeof MyButton> = {
   title: 'MyButton',
-  component: MyButton
-}
-
-export const Default: Story = {
-  render: (args: Args) => ({
+  component: MyButton,
+  render: (args) => ({
     components: { MyButton },
     setup() {
       return { args }
     },
     template: "<MyButton v-bind='args' />"
-  }),
+  })
+}
+export const Default: Story = {
   args: {
-    label: 'ボタン'
+    label: 'ボタン',
+    variant: 'secondary'
+  }
+}
+export const Login: Story = {
+  args: {
+    label: 'ログイン'
   }
 }
 
-export const Login: Story = {
-  render: (args: Args) => ({
-    components: { MyButton },
-    setup() {
-      return { args }
-    },
-    template: "<MyButton v-bind='args' />"
-  }),
+export const SignUp: Story = {
   args: {
-    label: 'ログイン',
-    variant: 'secondary'
+    label: '会員登録'
   }
 }
 
