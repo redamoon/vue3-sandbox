@@ -1,29 +1,31 @@
 <script setup lang="ts">
 const props = defineProps({
-    label: {
-        type: String,
-        required: true
-    },
-    variant: {
-        type: String,
-        default: 'primary'
-        validator(value: unknown): boolean {
-            return ['primary', 'secondary', 'tertiary'].includes(value as string)
-        }
-    },
-    size:{
-        type: String,
-        default: 'medium'
-        validator(value: unknown): boolean {
-            return ['small', 'medium', 'large'].includes(value as string)
-        }
-    },
+  label: {
+    type: String,
+    required: true
+  },
+  variant: {
+    type: String,
+    default: 'primary',
+    validator: (value: string) => {
+      return ['primary', 'secondary'].includes(value)
+    }
+  },
+  size: {
+    type: String,
+    default: 'medium',
+    validator: (value: string) => {
+      return ['small', 'medium', 'large'].includes(value)
+    }
+  }
 })
-const emits = defineEmits(["click"]);
+
+const emits = defineEmits(['click'])
 </script>
+
 <template>
-  <button class="btn" :class="[`btn--${variant}`, `btn--${size}`]" @click="$emit('click')">
-    {{ label }}
+  <button @click="emits('click')" :class="[props.variant, props.size]">
+    {{ props.label }}
   </button>
 </template>
 
