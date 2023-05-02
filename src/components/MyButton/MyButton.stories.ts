@@ -12,7 +12,7 @@ type Args = {
 const meta: Meta<typeof MyButton> = {
   title: 'MyButton',
   component: MyButton,
-  render: (args) => ({
+  render: (args: Args) => ({
     components: { MyButton },
     setup() {
       return { args }
