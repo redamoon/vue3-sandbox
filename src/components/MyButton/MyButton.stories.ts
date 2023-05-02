@@ -23,6 +23,20 @@ const meta: Meta<typeof MyButton> = {
     label: 'ボタン',
     variant: 'secondary',
     size: 'medium'
+  },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'inline-radio'
+      },
+      options: ['primary', 'secondary']
+    },
+    size: {
+      control: {
+        type: 'select'
+      },
+      options: ['small', 'medium', 'large']
+    }
   }
 }
 export const Default: Story = {}
