@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import PiniaView from '../views/pinia/PiniaView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,7 +18,7 @@ const router = createRouter({
     {
       path: '/pinia',
       name: 'PiniaView',
-      component: () => import('../views/pinia/index.vue')
+      component: PiniaView
     },
     {
       path: '/about',
