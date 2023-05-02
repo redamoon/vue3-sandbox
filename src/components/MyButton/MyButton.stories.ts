@@ -6,6 +6,7 @@ type Story = StoryObj<typeof MyButton>
 type Args = {
   label: string
   variant: string
+  size: string
 }
 // 共通化
 const meta: Meta<typeof MyButton> = {
@@ -17,24 +18,12 @@ const meta: Meta<typeof MyButton> = {
       return { args }
     },
     template: "<MyButton v-bind='args' />"
-  })
-}
-export const Default: Story = {
+  }),
   args: {
     label: 'ボタン',
-    variant: 'secondary'
+    variant: 'secondary',
+    size: 'medium'
   }
 }
-export const Login: Story = {
-  args: {
-    label: 'ログイン'
-  }
-}
-
-export const SignUp: Story = {
-  args: {
-    label: '会員登録'
-  }
-}
-
+export const Default: Story = {}
 export default meta
