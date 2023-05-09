@@ -10,11 +10,12 @@ export const useUsersStore = defineStore('users', {
   actions: {
     async fetchUser() {
       try {
-        console.log('Options API mounted')
         const res = await fetch('https://jsonplaceholder.typicode.com/users/1')
           .then((response) => response.json())
           .then((data) => data)
-        this.user = JSON.parse(JSON.stringify(res))
+        const dummy = { id: 1, name: 'dummy' }
+        this.user = { ...dummy }
+        console.log(this.user)
       } catch (e) {
         console.error(e)
       }

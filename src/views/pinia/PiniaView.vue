@@ -5,26 +5,29 @@ import { useUsersStore } from '@/stores/users'
 
 export default {
   setup() {
+    console.log('setup')
     const counterStore = useCounterStore()
     const usersStore = useUsersStore()
+    usersStore.fetchUser()
+    // console.log(usersStore.user)
     onMounted(async () => {
-      await usersStore.fetchUser()
-      counterStore.increment()
-      console.log('mounted')
-      console.log(counterStore.count)
+      // counterStore.increment()
+      console.log('onMounted')
       console.log(usersStore.user.name)
     })
     return {
+      user: usersStore.user,
       message: 'Hello world!',
       counterStore,
       usersStore
     }
   },
   mounted() {
-    this.usersStore.fetchUser()
-    console.log(this.usersStore.user?.name)
-    if (this.usersStore.user.name === 'Leanne Graham') return // ここの処理が通らない
-    console.log('ある場合')
+    console.log('mounted')
+    // this.usersStore.fetchUser()
+    console.log(this.user)
+    if (this.user === 1) return // IDが1の場合はreturn
+    console.log('idが一致しない')
   }
 }
 </script>
